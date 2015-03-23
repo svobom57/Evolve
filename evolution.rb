@@ -12,7 +12,7 @@ class Evolution
     @population = Array.new(population_size) {
       Individual.new(Array.new(graph.v_size) { rand(2) })
     }
-    @best_individual = nil
+    @best_individual = Individual.new(Array.new(graph.v_size) { 0 })
     # First n individuals will be moved to next generation (n will always be even)
     @elite = ((Math.log10(@population_size).round)*2).to_i
   end
@@ -33,13 +33,12 @@ class Evolution
       fitness_sum = set_fitness_to_population
       raise 'Weak population' if fitness_sum == 0
       selection(fitness_sum)
-      if @best_individual.nil? || (@best_individual.fitness < @population.last.fitness)
-        p 'ahoj'
+      if @best_individual.fitness < @population.last.fitness
         @best_individual = @population.last
         p @best_individual
       end
       crossover
-      mutation
+      mutate_generation
     end
     set_fitness_to_population
     @population.sort!
@@ -84,7 +83,7 @@ class Evolution
   # Using roulette-wheel selection: http://www.wikiwand.com/en/Fitness_proportionate_selection
   def selection(fitness_sum)
     normalize(fitness_sum)
-    @population
+    @population.sort!
     normalized_fitness_sum = @population.inject(0) {
         |acc, individual| individual.accumulated_normalized_fitness = acc + individual.normalized_fitness
     }
@@ -113,7 +112,7 @@ class Evolution
     @population.find { |individual| individual.accumulated_normalized_fitness > r }
   end
 
-  def mutation
-    @population.each { |individual| individual.mutate(@mutation_ratio) }
+  def mutate_generation
+    @population.each { |individual| individual.mutate_generation(@mutation_ratio) }
   end
 end
