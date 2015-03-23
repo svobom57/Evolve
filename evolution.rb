@@ -14,7 +14,7 @@ class Evolution
     }
     @best_individual = Individual.new(Array.new(graph.v_size) { 0 })
     # First n individuals will be moved to next generation (n will always be even)
-    @elite = ((Math.log10(@population_size).round)*2).to_i
+    @elite = ((Math.log10(@population_size).round)*2)
   end
 
   def print_population(population)
@@ -113,6 +113,6 @@ class Evolution
   end
 
   def mutate_generation
-    @population.each { |individual| individual.mutate_generation(@mutation_ratio) }
+    @population.each { |individual| individual.mutate(@mutation_ratio) }
   end
 end
