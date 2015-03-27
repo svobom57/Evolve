@@ -28,30 +28,4 @@ class Evolution
     @best_individual
   end
 
-  def fitness_swag(individual)
-    # If an individual is elite from previous generation his fitness is already calculated
-    # return individual.fitness if individual.fitcness > 0
-    # Creates a subgraph from marked vertices
-    subgraph = Graph.new(@graph.v_size, [])
-    expanded = Set.new
-    edges_found = 0
-    marked_vertices = 0
-    individual.genome.each_with_index do |marked, vertex1|
-      if marked == 1
-        expanded = @graph.expand_vertex(vertex1)
-        marked_vertices += 1
-      end
-      expanded.each do |vertex2|
-        subgraph.add_edge(vertex1, vertex2)
-        edges_found += 1
-      end
-      expanded.clear
-    end
-    return 0 if edges_found == 0
-    fitness = ((@graph.v_size-marked_vertices)*(subgraph.e_size)*(subgraph.e_size/edges_found.to_f)).round
-    fitness /= 10 unless subgraph.e_size == @graph.e_size
-    fitness
-  end
-
-
 end
