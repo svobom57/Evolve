@@ -17,8 +17,7 @@ class Evolution
   def evolve_min_vertex_cover
     @num_of_generations.times do |i|
       @population.set_fitness
-      population_best = Individual.new(@population.best_individual.genome)
-      population_best.fitness = @population.best_individual.fitness
+      population_best = @population.best_individual
       @best_individual = population_best if @best_individual.fitness < population_best.fitness
       break if i == @num_of_generations - 1
       @population.selection
