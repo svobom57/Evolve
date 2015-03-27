@@ -60,13 +60,19 @@ class Generation
       parent2 = get_parent
       # We can't send 2 same objects into new generation
       if rand > crossover_ratio || parent1==parent2
-        offspring << [Individual.new(parent1.genome.clone), Individual.new(parent2.genome.clone)]
+        child1 = Individual.new(parent1.genome.clone)
+        child2 = Individual.new(parent2.genome.clone)
+        child1.fitness = parent1.fitness
+        child2.fitness = parent2.fitness
+        offspring << [child1, child2]
       else
         offspring << parent1.crossover(parent2)
       end
     end
     @population.last(@elite).each do |elite|
-      offspring << Individual.new(elite.genome.clone)
+      new = Individual.new(elite.genome.clone)
+      new.fitness = elite.fitness
+      offspring << new
     end
     Generation.new(@population_size, @graph, offspring.flatten).set_elite(@elite)
   end
@@ -90,7 +96,7 @@ class Generation
 
   def fitness(individual)
     # If an individual is elite from previous generation his fitness is already calculated
-    # return individual.fitness if individual.fitness > 0
+    return individual.fitness if individual.fitness > 0
     # Creates a subgraph from marked vertices
     subgraph = Graph.new(@graph.v_size, [])
     expanded = Set.new
