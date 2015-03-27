@@ -4,7 +4,7 @@ require 'set'
 
 class Generation
 
-  attr_reader :population, :generation_fitness
+  attr_reader :generation_fitness
 
   def initialize(size, graph, population = nil)
     @best_individual = nil
