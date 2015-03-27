@@ -11,7 +11,7 @@ class Evolution
     @num_of_generations = num_of_generations
     @population = Generation.new(population_size, graph)
     @population.set_elite((Math.log10(population_size).round)*2)
-    @best_individual = nil
+    @best_individual = @population.best_individual
   end
 
   def evolve_min_vertex_cover
@@ -19,7 +19,7 @@ class Evolution
       @population.set_fitness
       population_best = Individual.new(@population.best_individual.genome)
       population_best.fitness = @population.best_individual.fitness
-      @best_individual = population_best if @best_individual.nil? || @best_individual.fitness < population_best.fitness
+      @best_individual = population_best if @best_individual.fitness < population_best.fitness
       break if i == @num_of_generations - 1
       @population.selection
       @population = @population.crossover(@crossover_ratio)
