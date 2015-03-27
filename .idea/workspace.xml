@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8992561c-8c5e-4fdf-9426-2064ae094cc7" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/generation.rb" afterPath="$PROJECT_DIR$/generation.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.rb" afterPath="$PROJECT_DIR$/main.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="evolve.iws" />
@@ -47,8 +45,8 @@
       <file leaf-file-name="generation.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/generation.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49001816" vertical-offset="972" max-vertical-offset="2376">
-              <caret line="69" column="9" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.522686" vertical-offset="972" max-vertical-offset="2376">
+              <caret line="70" column="7" selection-start-line="70" selection-start-column="7" selection-end-line="70" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -416,7 +414,13 @@
       <option name="project" value="LOCAL" />
       <updated>1427483631401</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fix unnecessary fitness counting">
+      <created>1427485078106</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1427485078106</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -488,7 +492,8 @@
     <MESSAGE value="Refactor method name" />
     <MESSAGE value="Evolution broken down into Generation class. Fix bug with rewriting @best_individual" />
     <MESSAGE value="Remove unnecessary method" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove unnecessary method" />
+    <MESSAGE value="Fix unnecessary fitness counting" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix unnecessary fitness counting" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -812,8 +817,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/generation.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49001816" vertical-offset="972" max-vertical-offset="2376">
-          <caret line="69" column="9" selection-start-line="69" selection-start-column="9" selection-end-line="69" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.522686" vertical-offset="972" max-vertical-offset="2376">
+          <caret line="70" column="7" selection-start-line="70" selection-start-column="7" selection-end-line="70" selection-end-column="7" />
           <folding />
         </state>
       </provider>
