@@ -18,6 +18,7 @@ class Evolution
     @num_of_generations.times do |i|
       @population.set_fitness
       population_best = @population.best_individual
+      p @best_individual
       @best_individual = population_best if @best_individual.fitness < population_best.fitness
       break if i == @num_of_generations - 1
       @population.selection
